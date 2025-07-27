@@ -1,0 +1,3 @@
+/*
+  This is a stdlib file for the Blizzard API data.
+*/

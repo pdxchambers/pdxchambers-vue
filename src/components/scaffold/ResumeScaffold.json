@@ -1,0 +1,137 @@
+{
+    "summary": "Innovative software development professional with extensive experience in designing and implementing robust and scalable web applications. Skilled in front-end and back-end development. Known for taking on challenges optimizing performance and usability to satisfy customer requirements.",
+    "introduction": "Proficient in utilizing a variety of programming languages and frameworks to create efficient and user-friendly solutions. Strong problem-solving skills and a keen ability to troubleshoot complex technical issues. Experienced in collaborating with cross-functional teams to deliver high-quality projects within tight deadlines. Adept at writing clean, maintainable code that adheres to industry best practices. Well-versed in conducting thorough testing to ensure the functionality and security of applications. Excellent communication skills and a track record of effectively translating client requirements into technical solutions.",
+    "military": {
+        "branch": "United States Navy",
+        "rank": "Petty Officer Third Class (E-4)",
+        "rate": "Quartermaster",
+        "description": "Served as Quartermaster on the USS Samuel Gompers (AD-37), a Samuel Gompers class Destroyer Tender. Responsible for navigation, ship handling, and maintaining navigational equipment. Demonstrated leadership and teamwork skills while working in a high-pressure environment. Developed strong attention to detail and problem-solving abilities through various operational challenges.",
+        "awards": 
+        [
+            "Southwest Asia Service Medal",
+            "National Defense Service Medal",
+            "Meritorious Unit Commendation",
+            "Navy Battle E Ribbon",
+            "Sea Service Deployment Ribbon"
+        ]
+    },
+    "education": 
+    {
+        "degree": "Bachelor of Science",
+        "major": "Computer Science",
+        "minor": "Mathematics",
+        "institution": "Portland State University",
+        "location": "Portland, OR"
+    },
+    "skills": [
+        {
+        "sectionTitle": "Languages/Frameworks",
+        "skillList":
+            [
+                "C#",
+                "JavaScript",
+                "TypeScript",
+                "HTML",
+                "CSS",
+                "SQL",
+                ".NET",
+                "React",
+                "Node.js",
+                "GraphQL",
+                "Less",
+                "Classic ASP",
+                "PHP",
+                "Vue.js"
+            ]
+        },
+       { 
+        "sectionTitle": "Tools/Technologies",
+        "skillList": 
+            [
+                "AWS",
+                "Docker",
+                "Git",
+                "Jenkins",
+                "Octopus Deploy",
+                "Linux",
+                "IIS",
+                "Apache"
+            ]
+        },
+        {
+        "sectionTitle": "Methodologies/Practices",
+        "skillList": 
+            [
+                "Agile Methodologies",
+                "Scrum",
+                "Kanban",
+                "Software Development Life Cycle (SDLC)",
+                "CI/CD",
+                "Microservices Architecture",
+                "Object Oriented Programming (OOP)"
+            ]
+        }
+    ],
+    "history": [
+        {
+            "company": {
+                "name": "LeadVenture",
+                "location": "Lake Oswego, OR"
+            },
+            "startDate": "12/2017",
+            "endDate": "5/2025",
+            "position": "Software Engineer II",
+            "description": "Manage legacy platform code, initiating transition to maintenance phase. Guide and support junior developers in their professional growth. Resolved complex technical issues and bugs by conducting thorough analysis, debugging, and implementing solutions within specified timelines. Develop internal tools to streamline operations, boost productivity, and ensure regulatory adherence. Collaborate with QA engineers to define test cases, conduct automated testing, and ensure the delivery of reliable and high-quality software products.",
+            "achievements": [
+                "Developed a self-service utility with the AWS CloudFront .NET SDK along with a JavaScript/React SPA UI, enabling the Support team to clear the CDN cache directly. This resulted in enhanced response times by removing the reliance on DevOps for cache management and boosted operational efficiency by at least 20%.",
+                "Collaborated with cross-functional teams in an Agile environment to develop scalable solutions, including a service that queried AWS Athena to enable custom Power BI dashboards while safeguarding sensitive data.",
+                "Engineered innovative solutions such as a COM object enabling HMAC SHA 256 authentication for legacy Classic ASP systems, demonstrating advanced problem-solving, adaptability, and a commitment to delivering results under platform constraints.",
+                "Responsible for acting as the primary interface between the Development Team and the Front-End Team. Performed code reviews for junior developers and acted as a point of contact within the Engineering Department.",
+                "Conducted knowledge transfer sessions with the team in India allowing them to take on more responsibility with the legacy platform as it is in the process of being deprecated.",
+                "Developed a tool for scanning the database to identify and eliminate Personally Identifiable Information (PII) upon consumer requests, guaranteeing adherence to the California Consumer Privacy Act (CCPA) and safeguarding clients and the company against legal liabilities.",
+                "Achieved subject matter expert status in Harley-Davidson products by collaborating closely with the Product Owner and key stakeholders.",
+                "Performed weekly deployments via Jenkins/Octopus. This involved collaborating with the QA team to determine which work items are ready for deployment and creating the appropriate Pull Requests."
+            ]
+        },
+        {
+            "company": {
+                "name": "TechSystems",
+                "location": "Portland, OR"
+            },
+             "startDate": "2/2017",
+            "endDate": "7/2017",
+            "position": "Desktop Support Specialist",
+            "description": "Deployed Legacy Healthcare equipment at Silverton Hospital and various clinics in the recently acquired Silverton Health service region. Conducted imaging of fresh workstations utilizing SCCM.  Resolved technical issues and provided troubleshooting support for software, hardware, and network problems. Collaborated with users to understand their IT needs, offered guidance on technology solutions, and implemented customized configurations.",
+            "achievements": "Delivered support for additional project installations and relocations, ensuring smooth execution and adaptability to project requirements."
+            
+        },
+        {
+            "company": {
+                "name": "Kaiser Permanente",
+                "location": "Portland, OR"
+            },
+             "startDate": "4/2013",
+            "endDate": "11/2016",
+            "position": "Virtual Support Technician",
+            "description": "Provided Tier II support to internal users using remote tools such as PCAnywhere and Bomgar. Assisted with Lotus Notes, Remote Access (VPN/RAS), and iOS devices. Provided remote assistance for user workstation issues without needing to be on-site. Diagnosed and investigated software and hardware issues to identify root causes and implement solutions.",
+            "achievements": [
+                "Managed remote software installations and efficiently resolved Remedy tickets. ",
+                "Improved user experience by ensuring timely support."
+            ]
+        }
+    ],
+    "certifications":
+    [
+        {
+            "name": "Network+",
+            "description": "CompTIA Network+ certification validates the essential knowledge and skills needed to design, configure, manage, and troubleshoot wired and wireless networks.",
+            "issuer": "CompTIA"
+        }
+    ],
+    "additionalExperience": 
+    [
+        "Desktop Support Technician, Pacific Office Automation, Beaverton, OR",
+        "Help Desk Agent, Bonneville Power Administration, Portland, OR",
+        "Tier II Support: Labs and Classrooms Team, Portland State University, Portland, OR"
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "projectList": [
+        {
+            "projectName": "Feedback Form",
+            "projectDescription": "Comment form with ratings. Part of the \"React Front to Back\" course on Udemy.",
+            "projectImage": "feedback-app.png",
+            "projectLink": "",
+            "projectGitHub": "https://github.com/pdxchambers/feedback-app"
+        },
+        {
+            "projectName": "GitHub Finder",
+            "projectDescription": "Searches GitHub for user profiles. Part of the \"React Front to Back\" course on Udemy. ",
+            "projectImage": "github-finder.png",
+            "projectLink": "",
+            "projectGitHub": "https://github.com/pdxchambers/github-finder"
+        },
+        {
+            "projectName": "Housing Marketplace",
+            "projectDescription": "Browse and create real estate listings. Part of the \"React Front to Back\" course on Udemy.",
+            "projectImage": "housing-marketplace.png",
+            "projectLink": "",
+            "projectGitHub": "https://github.com/pdxchambers/housing_marketplace"
+        }
+    ]
+}
