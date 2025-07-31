@@ -2,11 +2,7 @@
 import { ref } from 'vue'
 import siteLogo from '@/assets/SP-Studio.png'
 import SiteNav from './SiteNav.vue'
-defineProps<{
-  title: string
-  subtitle: string
-  logoAlt: string
-}>()
+import data from './scaffold/MainContent.json'
 
 const navVisible = window.innerWidth >= 992 ? ref(true) : ref(false)
 
@@ -16,14 +12,20 @@ const toggleNav = () => {
   }
   navVisible.value = !navVisible.value
 }
+
+const headerData = {
+  title: data.header.title,
+  subtitle: data.header.subtitle,
+  logoAlt: data.header.logoAlt
+}
 </script>
 
 <template>
   <header class="header">
-    <img :src="siteLogo" :alt="logoAlt" class="logo" />
+    <img :src="siteLogo" :alt="headerData.logoAlt" class="logo" />
     <div class="header-title">
-      <h1>{{ title }}</h1>
-      <span>{{ subtitle }}</span>
+      <h1>{{ headerData.title }}</h1>
+      <span>{{ headerData.subtitle }}</span>
     </div>
     <div class="social">
       <ul>

@@ -8,6 +8,7 @@ import { fetchCharacterData, type characterData, getWowRealmStatus, type realmDa
 import realmUp from '../assets/realm-status-up.png';
 import realmDown from '../assets/realm-status-down.png';
 import wowCamp from '../assets/WoW-campsite.png';
+import data from './scaffold/MainContent.json';
 
 const WowCharacter = ref<characterData[]>([]);
 const realmStatus = ref<realmData>({ id: 0, name: '', status: '' });
@@ -50,13 +51,9 @@ onMounted(async () => {
     </div>
 
     <div class="home-copy">
-      <h2>Full-Stack Web Developer With Passion!</h2>
+      <h2>{{data.introduction.title}}</h2>
       <p>
-        I am a full-stack web developer with a passion for building
-        scalable and efficient web applications. My expertise lies in
-        developing robust back-end systems and creating intuitive front-end
-        interfaces. I thrive on solving complex problems and delivering high-quality
-        code that meets user needs. Let's work together to bring your ideas to life!
+        {{data.introduction.description}}
       </p>
     </div>
   </div>

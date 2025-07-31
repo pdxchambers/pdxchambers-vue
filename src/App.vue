@@ -5,12 +5,7 @@ import MainFooter from './components/MainFooter.vue'
 </script>
 
 <template>
-  <MainHeader
-    title="Julien A. Chambers"
-    subtitle="Full-Stack Software Engineer"
-    logoAlt="PDXChambers"
-  />
-
+  <MainHeader />
   <RouterView />
   <MainFooter />
 </template>
