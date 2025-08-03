@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import HomeImage from '../assets/manWorking.png';
 import CtaBanner from './CtaBanner.vue';
 import CharacterWidget from '@/widgets/worldofwarcraft/CharacterWidget.vue';
 import BlueskyWidget from '@/widgets/bluesky/BlueskyWidget.vue';
@@ -45,223 +44,214 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="home">
-    <div class="home-img">
-      <img :src="HomeImage" alt="Illustration of man working at computer." class="main-img" />
+  <div id="main">
+    <div class="hero">
+      <h2>{{data.introduction.title}}</h2>
     </div>
 
-    <div class="home-copy">
-      <h2>{{data.introduction.title}}</h2>
+    <div class="introduction">
       <p>
         {{data.introduction.description}}
       </p>
     </div>
-  </div>
 
-  <div class="home-ctas">
-    <CtaBanner id="treehouse-cta" imgSrc="TreehouseBanner.png" imgAlt="Treehouse Logo"
-      link="https://www.teamtreehouse.com/?via=julien" text="Learn with Treehouse" />
-    <CtaBanner id="github-cta" imgSrc="GitHubBanner.png" imgAlt="GitHub Logo" link="https://github.com/pdxchambers"
-      text="View My GitHub" />
-  </div>
 
-  <div class="home-widgets">
-    <div class="bluesky-post">
-      <Suspense>
-        <BlueskyWidget />
-      </Suspense>
+    <div class="home-ctas">
+      <CtaBanner id="treehouse-cta" class="home-ctas__treehouse" imgSrc="TreehouseBanner.png" imgAlt="Treehouse Logo"
+        link="https://www.teamtreehouse.com/?via=julien" text="Learn with Treehouse" />
+      <CtaBanner id="github-cta" class="home-ctas__github" imgSrc="GitHubBanner.png" imgAlt="GitHub Logo" link="https://github.com/pdxchambers"
+        text="View My GitHub" />
     </div>
 
-    <div class="widget_divider">
-      <img :src="wowCamp" alt="World of Warcraft Campsite" class="wow-camp" />
-    </div>
+    <div class="widgets">
+      <div class="widgets__bluesky">
+        <Suspense>
+          <BlueskyWidget />
+        </Suspense>
+      </div>
 
-    <div class="wow-list">
-      <div class="wow-list__header">
-        <h2 class="wow-list__header--title">World of Warcraft</h2>
-        <div class="wow-list__status">
-          <h3>{{ realmStatus.name }} realm status:</h3>
-          <div class="wow-list__status-block">
-            <span class="wow-list__status-text">{{ realmStatus.status }}</span>
-            <img v-if="realmStatus.status.toLowerCase() === 'up'" :src="realmUp" alt="Realm Down" class="wow-list__status-icon" />
-            <img v-else :src="realmDown" alt="Realm Down" class="wow-list__status-icon" />
+      <div class="widgets__divider">
+        <img :src="wowCamp" alt="World of Warcraft Campsite" class="wow-camp" />
+      </div>
+
+      <div class="widgets__wow-list">
+        <div class="widgets__wow-list__header">
+          <h2 class="widgets__wow-list__header--title">World of Warcraft</h2>
+          <div class="widgets__wow-list__status">
+            <h3>{{ realmStatus.name }} realm status:</h3>
+            <div class="widgets__wow-list__status-block">
+              <span class="widgets__wow-list__status-text">{{ realmStatus.status }}</span>
+              <img v-if="realmStatus.status.toLowerCase() === 'up'" :src="realmUp" alt="Realm Down" class="widgets__wow-list__status-icon" />
+              <img v-else :src="realmDown" alt="Realm Down" class="widgets__wow-list__status-icon" />
+            </div>
           </div>
         </div>
-      </div>
-      <h3>My top 6 played toons:</h3>
-      <div class="wow-characters">
-        <CharacterWidget v-for="(toon, id) in WowCharacter" v-bind:key="id" :character="toon" />
+        <h3>My top 6 played toons:</h3>
+        <div class="wow-characters">
+          <CharacterWidget v-for="(toon, id) in WowCharacter" v-bind:key="id" :character="toon" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.home {
-  display: grid;
-  grid-template-areas:
-    "home-img home-img"
-    "home-copy home-copy";
-  justify-items: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: var(--base-padding);
-  max-width: var(--content-max-width);
-}
+<style lang="less" scoped>
+#main {
+  .hero {
+    background-image: url('../assets/developer.jpg');
+    background-size: cover;
+    background-position: center;
+    grid-area: home;
+    margin: 0 auto;
+    padding: var(--base-padding);
+    max-width: var(--content-max-width);
+    h2 {
+      color: var(--color-text);
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
 
-.home-img {
-  grid-area: home-img;
-  margin: 0 auto;
-  width: 65%;
-  text-align: center;
-  border-radius: var(--base-border-radius);
-}
+  .introduction {
+    grid-area: introduction;
 
-.home-copy {
-  grid-area: home-copy;
-}
+    p {
+      line-height: var(--base-line-height);
+      padding: var(--base-padding);
+    }
+  }
 
-.home-copy h2 {
-  font-size: 1.25rem;
-  text-align: center;
-}
-
-.home-copy p {
-  line-height: var(--base-line-height);
-  padding: var(--base-padding);
-}
-
-.home-widgets {
-  display: grid;
-  grid-template-areas:
-    "bluesky-post"
-    "divider"
-    "wow-list";
-  gap: var(--base-gap);
-  align-items: stretch;
-  padding: var(--base-padding);
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-}
-
-.bluesky-post {
-  grid-area: bluesky-post;
-  max-width: 100%;
-}
-
-.widget_divider {
-  grid-area: divider;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: var(--base-padding);
-}
-
-.widget_divider > img {
-  width: 100%;
-}
-
-.wow-list {
-  background-color: var(--color-accent-bg);
-  grid-area: wow-list;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: var(--base-padding);
-  border-radius: var(--base-border-radius);
-}
-
-.wow-list__header--title {
-  text-align: center;
-  border-bottom: thin solid var(--color-accent);
-}
-
-.wow-list__status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: var(--base-margin);
-}
-
-.wow-list__status-block {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-}
-.wow-list__status-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.wow-characters {
-  max-height: 157px;
-  overflow-y: scroll;
-}
-
-.home-ctas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.main-img {
-  border-radius: 1rem;
-  grid-area: logo-img;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-/* Grid areas */
-#treehouse-cta {
-  grid-area: treehouse;
-  max-width: 33.33%
-}
-
-#github-cta {
-  grid-area: github;
-  max-width: 33.33%
-}
-
-/* Media Queries */
-@media (min-width: 576px) {
-  .home-widgets{
+  .widgets {
+    display: grid;
+    grid-area: widgets;
     grid-template-areas:
-        "wow-list bluesky-post ";
+      "bluesky-post"
+      "divider"
+      "widgets__wow-list";
+    gap: var(--base-gap);
+    align-items: stretch;
+    padding: var(--base-padding);
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+
+    &__bluesky {
+      grid-area: bluesky-post;
+      max-width: 100%;
+    }
+
+    &__divider {
+      grid-area: divider;
+      max-width: 300px;
+      margin: 0 auto;
+      padding: var(--base-padding);
+      img {
+        width: 100%;
+      }
+    }
+
+    &__wow-list {
+      background-color: var(--color-accent-bg);
+      grid-area: widgets__wow-list;
+      max-width: 300px;
+      margin: 0 auto;
+      padding: var(--base-padding);
+      border-radius: var(--base-border-radius);
+      &__header{
+        &--title {
+          text-align: center;
+          border-bottom: thin solid var(--color-accent);
+        }
+      }
+      &__status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: var(--base-margin);
+      }
+      &__status-block {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+      }
+      &__status-icon {
+        width: 24px;
+        height: 24px;
+      }
+      .wow-characters {
+        max-height: 157px;
+        overflow-y: scroll;
+      }
+    }
   }
 
-  .widget_divider {
-    display: none;
-  }
-}
-@media (min-width: 768px) {
-  .home {
-    grid-template-areas:
-      "home-img home-copy";
-  }
-
-  .home-widgets {
-    background-color: var(--color-accent-bg);
-    border-radius: var(--base-border-radius);
-    border: thin solid var(--color-accent);
-    margin-bottom: 1rem;
+  .home-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: ctas;
+    justify-content: space-evenly;
+    &__treehouse {
+      grid-area: treehouse;
+      max-width: 33.33%
+    }
+    &__github {
+      grid-area: github;
+      max-width: 33.33%
+    }
   }
 
-  #treehouse-cta,
-  #github-cta {
-    max-width: 200px;
+  @media (min-width: 576px) {
+    .widgets{
+      grid-template-areas:
+          "widgets__wow-list bluesky-post ";
+    }
+
+    .widget_divider {
+      display: none;
+    }
+  }
+  @media (min-width: 768px) {
+    .home {
+      grid-template-areas:
+        "home-img introduction";
+    }
+
+    .widgets {
+      background-color: var(--color-accent-bg);
+      border-radius: var(--base-border-radius);
+      border: thin solid var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    #treehouse-cta,
+    #github-cta {
+      max-width: 200px;
+    }
+
+    .wow-characters {
+    max-height: 190px;
+  }
   }
 
-  .wow-characters {
-  max-height: 190px;
-}
-}
+  @media (min-width: 992px) {
+    #main {
+      display: grid;
+      grid-template-areas:
+        "home home"
+        "ctas ctas"
+        "widgets widgets";
+      grid-template-columns: 1fr 1fr;
+      gap: var(--base-gap);
+    }
 
-@media (min-width: 992px) {
-  .home-widgets {
-    grid-template-areas:
-      "wow-list divider bluesky-post";
-  }
+    .widgets {
+      grid-template-areas:
+        "widgets__wow-list divider bluesky-post";
+    }
 
-  .widget_divider {
-    display: block;
+    .widget_divider {
+      display: block;
+    }
   }
 }
 </style>
