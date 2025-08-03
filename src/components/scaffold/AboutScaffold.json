@@ -1,0 +1,45 @@
+{
+    "aboutMe": {
+        "title": "About Julien Chambers",
+        "paragraphOne": "Julien is a Full-Stack web developer with a passion for building efficient and scalable web applications. With a background in computer science and extensive experience in both front-end and back-end development, Julien has worked on various projects that showcase his skills in modern web technologies.",
+        "paragraphTwo": "In his most recent role, Julien attained the position of Subject Matter Expert for Harley-Davidson related projects at Dealer Spike where he worked closely with Product Owners and other stakeholders to ensure timely model year updates and other enhancements to the Dealer Spike platform. His expertise in JavaScript, TypeScript, and various front-end frameworks has allowed him to create intuitive and responsive user interfaces that meet the needs of clients and end-users alike.",
+        "paragraphThree": "In his most recent role, Julien attained the position of Subject Matter Expert for Harley-Davidson related projects at Dealer Spike where he worked closely with Product Owners and other stakeholders to ensure timely model year updates and other enhancements to the Dealer Spike platform. His expertise in JavaScript, TypeScript, and various front-end frameworks has allowed him to create intuitive and responsive user interfaces that meet the needs of clients and end-users alike.",
+        "paragraphFour": "Julien currently resides in Oregon City, Oregon with his wife and son. In his free time, he enjoys spending time with his family, exploring the Oregon Coast, and tinkering with new technologies. He is always looking for new challenges and opportunities to apply his skills in innovative ways."
+    },
+    "siteFeatures": {
+        "title": "About This Site",
+        "intoduction": "This site is built on the foundation of demonstrating Julien's skills as a full-stack developer. Built as a Single Page Application (SPA) using Vue 3 and TypeScript, a great deal of attention has been paid to ensuring a seamless user experience and responsive design. It also showcases some features demonstrating Julien's skill and experience with integrating third-party APIs.",
+        "subtitle": "Feature Summary",
+        "features": [
+            {
+                "title": "World of Warcraft Characters",
+                "description": "The site queries the Blizzard API to retreive character data for some of the characters Julien plays in World of Warcraft."
+            },
+            {
+                "title": "World of Warcraft Realm Status",
+                "description": "The Blizzard API is used to check the status of the Sen'Jin realm in World of Warcraft, displaying whether the realm is up or down."
+            },
+            {
+                "title": "Responsive Design",
+                "description": "The site is mobile first and fully responsive, ensuring a great user experience on both desktop and mobile devices."
+            },
+            {
+                "title": "Vue 3 and TypeScript",
+                "description": "Built using Vue 3 and TypeScript, the site leverages modern web development practices for maintainability and scalability."
+            },
+            {
+                "title": "Single Page Application (SPA)",
+                "description": "The site is a Single Page Application, providing a smooth and fast user experience without full page reloads."
+            },
+            {
+                "title": "Bluesky API Integration",
+                "description": "The site integrates with the Bluesky API to display the most recent post from Julien's Bluesky account."
+            }
+        ]
+    },
+    "futureRoadmap": {
+        "title": "What's Next for PDXChambers.com?",
+        "description": "Julien is planning on turnig this site into a lightweight Contant Management System (CMS) with a .NET back-end. This is currently in the planning stage, but the goal is to further demonstrate his skills with .NET and C# as well as to make it easier to update the content on this site."
+    }
+
+}
