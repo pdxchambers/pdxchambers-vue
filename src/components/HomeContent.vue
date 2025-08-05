@@ -126,9 +126,9 @@ onMounted(async () => {
     display: grid;
     grid-area: widgets;
     grid-template-areas:
-      "bluesky-post"
+      "bluesky"
       "divider"
-      "widgets__wow-list";
+      "wow";
     gap: var(--base-gap);
     align-items: stretch;
     padding: var(--base-padding);
@@ -136,7 +136,7 @@ onMounted(async () => {
     margin: 0 auto;
 
     &__bluesky {
-      grid-area: bluesky-post;
+      grid-area: bluesky;
       max-width: 100%;
     }
 
@@ -152,7 +152,7 @@ onMounted(async () => {
 
     &__wow-list {
       background-color: var(--color-accent-bg);
-      grid-area: widgets__wow-list;
+      grid-area: wow;
       max-width: 300px;
       margin: 0 auto;
       padding: var(--base-padding);
@@ -203,13 +203,13 @@ onMounted(async () => {
   @media (min-width: 576px) {
     .widgets{
       grid-template-areas:
-          "widgets__wow-list bluesky-post ";
-    }
-
-    .widget_divider {
-      display: none;
+          "wow bluesky";
+      &__divider {
+        display: none;
+      }
     }
   }
+
   @media (min-width: 768px) {
     .home {
       grid-template-areas:
@@ -246,8 +246,7 @@ onMounted(async () => {
 
     .widgets {
       grid-template-areas:
-        "widgets__wow-list divider bluesky-post";
-    }
+        "wow divider bluesky";    }
 
     .widget_divider {
       display: block;
