@@ -56,10 +56,10 @@ onMounted(async () => {
     </div>
 
 
-    <div class="home-ctas">
-      <CtaBanner id="treehouse-cta" class="home-ctas__treehouse" imgSrc="TreehouseBanner.png" imgAlt="Treehouse Logo"
+    <div class="ctas">
+      <CtaBanner id="treehouse-cta" class="ctas__treehouse" imgSrc="TreehouseBanner.png" imgAlt="Treehouse Logo"
         link="https://www.teamtreehouse.com/?via=julien" text="Learn with Treehouse" />
-      <CtaBanner id="github-cta" class="home-ctas__github" imgSrc="GitHubBanner.png" imgAlt="GitHub Logo" link="https://github.com/pdxchambers"
+      <CtaBanner id="github-cta" class="ctas__github" imgSrc="GitHubBanner.png" imgAlt="GitHub Logo" link="https://github.com/pdxchambers"
         text="View My GitHub" />
     </div>
 
@@ -185,7 +185,7 @@ onMounted(async () => {
     }
   }
 
-  .home-ctas {
+  .ctas {
     display: flex;
     flex-wrap: wrap;
     grid-area: ctas;
@@ -223,7 +223,7 @@ onMounted(async () => {
       margin-bottom: 1rem;
     }
 
-    .home-ctas {
+    .ctas {
       &__treehouse,
       &__github {
         max-width: 200px;
