@@ -74,20 +74,20 @@ onMounted(async () => {
         <img :src="wowCamp" alt="World of Warcraft Campsite" class="wow-camp" />
       </div>
 
-      <div class="widgets__wow-list">
-        <div class="widgets__wow-list__header">
-          <h2 class="widgets__wow-list__header--title">World of Warcraft</h2>
-          <div class="widgets__wow-list__status">
+      <div class="widgets__wowList">
+        <div class="widgets__wowList__header">
+          <h2 class="widgets__wowList__header--title">World of Warcraft</h2>
+          <div class="widgets__wowList__status">
             <h3>{{ realmStatus.name }} realm status:</h3>
-            <div class="widgets__wow-list__status-block">
-              <span class="widgets__wow-list__status-text">{{ realmStatus.status }}</span>
-              <img v-if="realmStatus.status.toLowerCase() === 'up'" :src="realmUp" alt="Realm Down" class="widgets__wow-list__status-icon" />
-              <img v-else :src="realmDown" alt="Realm Down" class="widgets__wow-list__status-icon" />
+            <div class="widgets__wowList__status-block">
+              <span class="widgets__wowList__status-text">{{ realmStatus.status }}</span>
+              <img v-if="realmStatus.status.toLowerCase() === 'up'" :src="realmUp" alt="Realm Down" class="widgets__wowList__status-icon" />
+              <img v-else :src="realmDown" alt="Realm Down" class="widgets__wowList__status-icon" />
             </div>
           </div>
         </div>
         <h3>My top 6 played toons:</h3>
-        <div class="wow-characters">
+        <div class="widgets__wowCharacters">
           <CharacterWidget v-for="(toon, id) in WowCharacter" v-bind:key="id" :character="toon" />
         </div>
       </div>
@@ -150,7 +150,7 @@ onMounted(async () => {
       }
     }
 
-    &__wow-list {
+    &__wowList {
       background-color: var(--color-accent-bg);
       grid-area: wow;
       max-width: 300px;
@@ -178,7 +178,7 @@ onMounted(async () => {
         width: 24px;
         height: 24px;
       }
-      .wow-characters {
+      &__wowCharacters {
         max-height: 157px;
         overflow-y: scroll;
       }
@@ -223,14 +223,19 @@ onMounted(async () => {
       margin-bottom: 1rem;
     }
 
-    #treehouse-cta,
-    #github-cta {
-      max-width: 200px;
+    .home-ctas {
+      &__treehouse,
+      &__github {
+        max-width: 200px;
+      }
+
     }
 
-    .wow-characters {
-    max-height: 190px;
-  }
+    .wowList {
+      .wowCharacters {
+        max-height: 190px;
+      }
+    }
   }
 
   @media (min-width: 992px) {
@@ -246,10 +251,10 @@ onMounted(async () => {
 
     .widgets {
       grid-template-areas:
-        "wow divider bluesky";    }
-
-    .widget_divider {
-      display: block;
+        "wow divider bluesky";
+      &__divider {
+        display: block;
+      }
     }
   }
 }
