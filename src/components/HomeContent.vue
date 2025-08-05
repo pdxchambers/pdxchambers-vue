@@ -87,7 +87,7 @@ onMounted(async () => {
           </div>
         </div>
         <h3>My top 6 played toons:</h3>
-        <div class="widgets__wowCharacters">
+        <div class="widgets__wowList__wowCharacters">
           <CharacterWidget v-for="(toon, id) in WowCharacter" v-bind:key="id" :character="toon" />
         </div>
       </div>
