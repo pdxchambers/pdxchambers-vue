@@ -22,27 +22,27 @@ const headerData = {
 
 <template>
   <header class="header">
-    <img :src="siteLogo" :alt="headerData.logoAlt" class="logo" />
-    <div class="header-title">
+    <img :src="siteLogo" :alt="headerData.logoAlt" class="header__logo" />
+    <div class="header__title">
       <h1>{{ headerData.title }}</h1>
       <span>{{ headerData.subtitle }}</span>
     </div>
-    <div class="social">
+    <div class="header__social">
       <ul>
-        <li class="social-icon"><a href="https://bsky.app/profile/pdxchambers.com"><font-awesome-icon :icon="['fab', 'bluesky']"></font-awesome-icon></a></li>
-        <li class="social-icon"><a href="www.linkedin.com/in/julienchambers"><font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon></a></li>
-        <!-- li class="social-icon"><a href="https://github.com/pdxchambers"><font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon></a></li -->
+        <li class="header__socialIcon"><a href="https://bsky.app/profile/pdxchambers.com"><font-awesome-icon :icon="['fab', 'bluesky']"></font-awesome-icon></a></li>
+        <li class="header__socialIcon"><a href="www.linkedin.com/in/julienchambers"><font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon></a></li>
+        <!-- li class="header__socialIcon"><a href="https://github.com/pdxchambers"><font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon></a></li -->
       </ul>
     </div>
-    <button @click="toggleNav" aria-label="Toggle Navigation" class="nav-toggle">
+    <button @click="toggleNav" aria-label="Toggle Navigation" class="header__navToggle">
       <font-awesome-icon :icon="['fas', 'bars']" />
     </button>
   </header>
   <SiteNav v-if="navVisible" id="HeaderNav" class="navigation" />
 </template>
 
-<style scoped>
-header {
+<style lang="less" scoped>
+.header {
   display: grid;
   grid-template-areas:
     "logo title nav"
@@ -53,48 +53,53 @@ header {
   background-color: var(--color-accent-bg);
   border-bottom: thick solid var(--color-accent);
   position: relative;
-}
+  &__title {
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  }
+  &__logo {
+    grid-area: logo;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+  &__social {
+    grid-area: social;
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      a {
+        text-decoration: none;
+        color: var(--color-text);
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &__navToggle {
+    background-color:transparent;
+    border: none;
+    border-radius: 0.25rem;
+    color: var(--color-accent-text);
+    cursor: pointer;
+    font-size: 1.5rem;
+    grid-area: nav;
 
-.header-title {
-  grid-area: title;
-  display: flex;
-  flex-direction: column;
-}
-
-.header-title h1 {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-header > div > span {
-  font-style: italic;
-}
-
-.logo {
-  grid-area: logo;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  margin-right: 1rem;
-  vertical-align: middle;
-}
-
-.social {
-  grid-area: social;
-}
-
-.social ul {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.social ul a {
-  text-decoration: none;
-  color: var(--color-text);
-  font-size: 1.5rem;
+  }
+  div {
+    span {
+      font-style: italic;
+    }
+  }
 }
 
 .navigation {
@@ -107,16 +112,7 @@ header > div > span {
   z-index: 10;
 }
 
-.nav-toggle {
-  background-color:transparent;
-  border: none;
-  border-radius: 0.25rem;
-  color: var(--color-accent-text);
-  cursor: pointer;
-  font-size: 1.5rem;
-  grid-area: nav;
 
-}
 
 @media (min-width: 768px) {
   header {
@@ -170,7 +166,7 @@ header > div > span {
     width: 100%;
   }
 
-  .nav-toggle{
+  .navToggle{
     display: none;
   }
 }
