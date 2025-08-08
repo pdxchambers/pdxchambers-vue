@@ -26,12 +26,15 @@ const props = defineProps<{
     </nav>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
   ul {
     background-color: var(--color-accent-bg);
     list-style-type: none;
     padding: 0;
     width: 100%;
+    @media (min-width: 768px) {
+      width: 100%;
+    }
   }
 
   li {
@@ -40,28 +43,13 @@ const props = defineProps<{
     padding: 0.5rem;
     margin-top: 0.1rem;
     width: 100%;
+    @media (min-width: 992px) {
+      text-align: center;
+    }
   }
 
   a {
     text-decoration: none;
     color: var(--color-text);
-  }
-
-  @media (min-width: 768px) {
-    ul {
-      width: 100%;
-    }
-  }
-
-  @media (min-width: 992px) {
-    ul {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-
-    li {
-      text-align: center;
-    }
   }
 </style>

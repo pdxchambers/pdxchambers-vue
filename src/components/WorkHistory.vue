@@ -13,10 +13,10 @@
 
 <template>
   <div :id class="position">
-    <div class="position-header">
+    <div class="position__header">
       <h3>{{ props.position }}</h3>
-      <p class="company-name">{{ props.companyName }} - {{ props.companyLocation }}</p>
-      <p class="tenure">{{ props.startDate }} - {{ props.endDate }}</p>
+      <p class="position__companyName">{{ props.companyName }} - {{ props.companyLocation }}</p>
+      <p class="position__tenure">{{ props.startDate }} - {{ props.endDate }}</p>
     </div>
     <div>
       <p>{{ props.description }}</p>
@@ -27,22 +27,24 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
   .position {
     border-bottom: thin solid var(--color-accent);
     padding-bottom: var(--base-padding);
-  }
- .position-header {
-   border-bottom: thin solid var(--color-accent);
-   margin: var(--base-margin) 0;
-   padding-bottom: var(--base-padding);
- }
- .company-name {
-   font-style: italic;
- }
- .tenure {
-  text-align: right;
-  font-weight: bold;
- }
 
+    &__header {
+      border-bottom: thin solid var(--color-accent);
+      margin: var(--base-margin) 0;
+      padding-bottom: var(--base-padding);
+    }
+
+    &__companName {
+      font-style: italic;
+    }
+
+    &__tenure {
+      text-align: right;
+      font-weight: bold;
+    }
+  }
 </style>

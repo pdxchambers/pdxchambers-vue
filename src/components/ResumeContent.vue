@@ -116,9 +116,5 @@
         }
       }
     }
-
-    @media (min-width: 768px) {
-
-    }
   }
 </style>

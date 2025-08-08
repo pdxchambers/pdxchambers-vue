@@ -148,6 +148,13 @@ onMounted(async () => {
       img {
         width: 100%;
       }
+      @media (min-width: 576px) {
+        display: none;
+      }
+
+      @media (min-width: 992px) {
+        display: block;
+      }
     }
 
     &__wowList {
@@ -181,65 +188,52 @@ onMounted(async () => {
       &__wowCharacters {
         max-height: 157px;
         overflow-y: scroll;
+        @media (min-width: 768px) {
+          max-height: 190px;
+        }
       }
     }
-  }
-
-  .ctas {
-    display: flex;
-    flex-wrap: wrap;
-    grid-area: ctas;
-    justify-content: space-evenly;
-    &__treehouse {
-      grid-area: treehouse;
-      max-width: 33.33%
-    }
-    &__github {
-      grid-area: github;
-      max-width: 33.33%
-    }
-  }
 
   @media (min-width: 576px) {
-    .widgets{
-      grid-template-areas:
-          "wow bluesky";
-      &__divider {
-        display: none;
-      }
-    }
+    grid-template-areas:
+      "wow bluesky";
   }
 
   @media (min-width: 768px) {
-    .home {
+    background-color: var(--color-accent-bg);
+    border-radius: var(--base-border-radius);
+    border: thin solid var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 992px) {
       grid-template-areas:
-        "home-img introduction";
+      "wow divider bluesky";
     }
+}
 
-    .widgets {
-      background-color: var(--color-accent-bg);
-      border-radius: var(--base-border-radius);
-      border: thin solid var(--color-accent);
-      margin-bottom: 1rem;
-    }
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: ctas;
+  justify-content: space-evenly;
+  &__treehouse {
+    grid-area: treehouse;
+    max-width: 33.33%
+  }
+  &__github {
+    grid-area: github;
+    max-width: 33.33%
+  }
 
-    .ctas {
-      &__treehouse,
-      &__github {
-        max-width: 200px;
-      }
-
-    }
-
-    .wowList {
-      .wowCharacters {
-        max-height: 190px;
-      }
+  @media (min-width: 768px) {
+    &__treehouse,
+    &__github {
+      max-width: 200px;
     }
   }
 
   @media (min-width: 992px) {
-    #main {
       display: grid;
       grid-template-areas:
         "home home"
@@ -247,14 +241,6 @@ onMounted(async () => {
         "widgets widgets";
       grid-template-columns: 1fr 1fr;
       gap: var(--base-gap);
-    }
-
-    .widgets {
-      grid-template-areas:
-        "wow divider bluesky";
-      &__divider {
-        display: block;
-      }
     }
   }
 }

@@ -84,9 +84,7 @@ const formatDate = (dateString: string | undefined): string => {
   }
 
   @media (min-width: 576px) {
-    .blueskyWidget {
-      margin: 0 auto;;
-    }
+      margin: 0 auto;
   }
 }
 </style>

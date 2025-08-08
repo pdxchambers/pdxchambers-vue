@@ -60,6 +60,9 @@ const headerData = {
     h1 {
       font-size: 1.5rem;
       margin: 0;
+      @media (min-width: 768px) {
+        font-size: 2rem;
+      }
     }
   }
   &__logo {
@@ -69,6 +72,10 @@ const headerData = {
     height: 60px;
     margin-right: 1rem;
     vertical-align: middle;
+    @media (min-width: 768px) {
+      width: 100px;
+      height: 100px;
+    }
   }
   &__social {
     grid-area: social;
@@ -83,6 +90,16 @@ const headerData = {
         color: var(--color-text);
         font-size: 1.5rem;
       }
+      li {
+        @media (min-width: 768px) {
+          margin: .5rem 0;
+          text-align: center;
+        }
+      }
+
+      @media (min-width: 768px) {
+        display: block;
+      }
     }
   }
   &__navToggle {
@@ -94,11 +111,32 @@ const headerData = {
     font-size: 1.5rem;
     grid-area: nav;
 
+    @media (min-width: 992px) {
+      display: none;
+    }
   }
   div {
     span {
       font-style: italic;
     }
+  }
+  @media (min-width: 768px) {
+    column-gap: 1rem;
+    grid-template-columns: 100px 400px auto;
+    grid-template-areas:
+    "logo title social nav"
+    "logo title social nav";
+    position: static;
+  }
+
+  @media (min-width: 992px) {
+    column-gap: 1rem;;
+    grid-template-columns: 100px 775px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "logo title social"
+      "nav nav nav";
+    position: static;
   }
 }
 
@@ -110,65 +148,17 @@ const headerData = {
   position: absolute;
   top: 75px;
   z-index: 10;
-}
 
-
-
-@media (min-width: 768px) {
-  header {
-    column-gap: 1rem;
-    grid-template-columns: 100px 400px auto;
-    grid-template-areas:
-    "logo title social nav"
-    "logo title social nav";
-    position: static;
-  }
-
-  .header-title h1 {
-    font-size: 2rem;
-
-  }
-
-  .social ul {
-    display: block;
-  }
-
-  .social ul li {
-    margin: .5rem 0;
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .navigation {
+  @media (min-width: 768px) {
     width: 25%;
     right: 2rem;
     top: 6rem;
   }
-}
 
-@media (min-width: 992px) {
-  .header {
-    column-gap: 1rem;;
-    grid-template-columns: 100px 775px auto;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "logo title social"
-      "nav nav nav";
-    position: static;
-  }
-
-  .navigation {
+  @media (min-width: 992px) {
     align-self: stretch;
     position: static;
     width: 100%;
   }
-
-  .navToggle{
-    display: none;
-  }
 }
-
 </style>
