@@ -46,12 +46,15 @@ onMounted(async () => {
 <template>
   <div class="main">
     <div class="main__hero">
-      <h2>{{data.introduction.title}}</h2>
+      <h2 class="main__hero--title">{{data.hero.title}}</h2>
+      <p class="main__hero--description">
+        {{data.hero.description}}
+      </p>
     </div>
 
     <div class="main__introduction">
       <p>
-        {{data.introduction.description}}
+        {{data.copy}}
       </p>
     </div>
 
@@ -97,22 +100,42 @@ onMounted(async () => {
 
 <style lang="less" scoped>
 .main {
+  background-color: #fff;
+  color: var(--color-accent-bg);
+  max-width: var(--base-max-width);
   &__hero {
     background-image: url('../assets/developer.jpg');
     background-size: cover;
     background-position: center;
+    border-bottom: thin solid var(--color-accent);
     grid-area: home;
     margin: 0 auto;
     padding: var(--base-padding);
-    h2 {
+    &--title {
       color: var(--color-text);
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: bold;
       text-align: center;
+      @media(min-width: 768px) {
+        border-right: thick solid var(--color-accent);
+      }
     }
-    @media (min-width: 992px) {
+    &--description {
+      border-top: thin solid var(--color-accent);
+      font-size: 1.25rem;
+      text-align: center;
+      margin-top: 1rem;
+      @media(min-width: 768px) {
+        border-top: none;
+        padding: 2rem;
+      }
+    }
+    @media (min-width: 768px) {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 300px;
-      width: var(--content-max-width);
     }
   }
 
@@ -121,10 +144,6 @@ onMounted(async () => {
     p {
       line-height: var(--base-line-height);
       padding: var(--base-padding);
-    }
-    @media (min-width: 992px) {
-      width: var(--content-max-width);
-      margin: 0 auto;
     }
   }
 
@@ -138,8 +157,8 @@ onMounted(async () => {
     gap: var(--base-gap);
     align-items: stretch;
     padding: var(--base-padding);
-    max-width: var(--content-max-width);
     margin: 0 auto;
+    width: 100%;
 
     &--bluesky {
       grid-area: bluesky;
@@ -166,7 +185,6 @@ onMounted(async () => {
     &--wowList {
       background-color: var(--color-accent-bg);
       grid-area: wow;
-      max-width: 300px;
       margin: 0 auto;
       padding: var(--base-padding);
       border-radius: var(--base-border-radius);
@@ -209,50 +227,65 @@ onMounted(async () => {
     margin-bottom: 1rem;
   }
 
-  @media (min-width: 768px) {
-
-  }
-
   @media (min-width: 992px) {
     grid-template-areas:
     "wow divider bluesky";
-    border-radius: var(--base-border-radius);
-    border: thin solid var(--color-accent);
   }
 }
 
 &__ctas {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   grid-area: ctas;
-  justify-content: space-evenly;
+  grid-template-areas:
+    "treehouse"
+    "github";
+  justify-content: center;
 
   &--treehouse {
     grid-area: treehouse;
     max-width: 33.33%;
+    @media (min-width: 576px) {
+      max-width: 75%;
+    }
     @media (min-width: 768px) {
-      max-width: 200px;
+      max-width: 65%;
     }
   }
 
   &--github {
     grid-area: github;
     max-width: 33.33%;
+    @media (min-width: 576px) {
+      max-width: 75%;
+    }
     @media (min-width: 768px) {
-      max-width: 200px;
+      max-width: 65%;
     }
   }
+  @media (max-width: 575px) {
+    display: grid;
+    grid-template-areas:
+      "treehouse"
+      "github";
+    grid-template-columns: 1fr;
+    gap: var(--base-gap);
+  }
 }
-
-  @media (min-width: 992px) {
+  @media (min-width: 576px) {
     display: grid;
     grid-template-areas:
       "home home"
-      "introduction introduction"
-      "ctas ctas"
+      "introduction ctas"
       "widgets widgets";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: var(--base-gap);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-areas:
+      "home home"
+      "introduction ctas"
+      "widgets widgets";
   }
 }
 </style>
