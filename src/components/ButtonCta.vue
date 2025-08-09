@@ -15,11 +15,11 @@
 </script>
 
 <template>
-  <RouterLink :id="id" :to="routePath" class="cta-link">
+  <RouterLink :id="id" :to="routePath" class="ctaLink">
     <button
 
       :type="type || 'button'"
-      class="cta-button"
+      class="ctaButton"
       @click="clickHandler"
     >
       {{ icon }} {{ label }}
@@ -27,8 +27,8 @@
   </RouterLink>
 </template>
 
-<style scoped>
-.cta-button {
+<style lang="less" scoped>
+.ctaButton {
   background-color: var(--color-accent-bg);
   border: thin solid var(--color-accent);
   border-radius: 1.75rem;

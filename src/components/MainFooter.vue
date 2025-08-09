@@ -3,21 +3,20 @@
 </script>
 
 <template>
-    <footer>
-        <span>&copy; {{ copyrightDate }} Julien A. Chambers, All rights reserved.</span>
+    <footer class="footer">
+        <span class="footer__copyright">&copy; {{ copyrightDate }} Julien A. Chambers, All rights reserved.</span>
     </footer>
 </template>
 
-<style scoped>
-    footer {
-        background-color: var(--color-accent-bg);
-        padding: var(--base-padding);
-        border-top: thick solid var(--color-accent);
-        text-align: center;
-    }
-
-    footer > span {
+<style lang="less" scoped>
+    .footer {
+      background-color: var(--color-accent-bg);
+      padding: var(--base-padding);
+      border-top: thick solid var(--color-accent);
+      text-align: center;
+      &__copyright {
         font-size: 0.8rem;
         font-style: italic;
+      }
     }
 </style>

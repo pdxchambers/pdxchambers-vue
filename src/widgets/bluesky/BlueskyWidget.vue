@@ -38,60 +38,53 @@ const formatDate = (dateString: string | undefined): string => {
 </script>
 
 <template>
-  <div class="bluesky-widget">
-    <div class="bluesky-widget__header">
+  <div class="blueskyWidget">
+    <div class="blueskyWidget__header">
       <h2>Bluesky</h2>
-      <span class="bluesky-widget__meta">Posted to <a href="https://bsky.app/profile/pdxchambers.com">Bluesky</a> on {{
+      <span class="blueskyWidget__meta">Posted to <a href="https://bsky.app/profile/pdxchambers.com">Bluesky</a> on {{
         formatDate(feedPosts?.createdAt) }}</span>
     </div>
-    <div class="bluesky-widget__text">
+    <div class="blueskyWidget__text">
       {{ feedPosts?.text }}
     </div>
   </div>
 </template>
 
-<style scoped>
-.bluesky-widget {
+<style lang="less" scoped>
+.blueskyWidget {
   background-color: var(--color-accent-bg);
   border-radius: var(--base-border-radius);
   padding: var(--base-padding);
   max-width: 300px;
   margin: var(--base-margin) auto;
-}
+  &__header {
+    text-align: center;
+    margin-bottom: var(--base-margin);
+    h2 {
+      border-bottom: thin solid var(--color-accent);
+    }
+  }
+  &__meta {
+    font-size: 12px;
+    margin-bottom: var(--base-margin);
+    padding: var(--base-padding);
+  }
+  &__text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-accent-text);
+    border: thin solid var(--color-accent);
+    border-radius: var(--base-border-radius);
+    padding: var(--base-padding);
+  }
+  a {
+    color: var(--color-accent-text);
+    text-decoration: none;
+    padding: var(--base-padding) 0;
+  }
 
-.bluesky-widget__header {
-  text-align: center;
-  margin-bottom: var(--base-margin);
-}
-
-.bluesky-widget__meta {
-  font-size: 12px;
-  margin-bottom: var(--base-margin);
-  padding: var(--base-padding);
-}
-
-.bluesky-widget__header h2 {
-  border-bottom: thin solid var(--color-accent);
-}
-
-.bluesky-widget__text {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--color-accent-text);
-  border: thin solid var(--color-accent);
-  border-radius: var(--base-border-radius);
-  padding: var(--base-padding);
-}
-
-a {
-  color: var(--color-accent-text);
-  text-decoration: none;
-  padding: var(--base-padding) 0;
-}
-
-@media (min-width: 576px) {
-  .bluesky-widget {
-    margin: 0 auto;;
+  @media (min-width: 576px) {
+      margin: 0 auto;
   }
 }
 </style>
