@@ -35,21 +35,23 @@ const props = defineProps<{
     @media (min-width: 768px) {
       width: 100%;
     }
-  }
-
-  li {
-    background-color: var(--color-accent-bg);
-    border-bottom: thin solid var(--color-accent);
-    padding: 0.5rem;
-    margin-top: 0.1rem;
-    width: 100%;
     @media (min-width: 992px) {
-      text-align: center;
+      display: flex;
+      justify-content: space-evenly;
     }
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--color-text);
+    li {
+      background-color: var(--color-accent-bg);
+      border-bottom: thin solid var(--color-accent);
+      padding: 0.5rem;
+      margin-top: 0.1rem;
+      width: 100%;
+      @media (min-width: 992px) {
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+        color: var(--color-text);
+      }
+    }
   }
 </style>

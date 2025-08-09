@@ -44,50 +44,50 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div id="main">
-    <div class="hero">
+  <div class="main">
+    <div class="main__hero">
       <h2>{{data.introduction.title}}</h2>
     </div>
 
-    <div class="introduction">
+    <div class="main__introduction">
       <p>
         {{data.introduction.description}}
       </p>
     </div>
 
 
-    <div class="ctas">
-      <CtaBanner id="treehouse-cta" class="ctas__treehouse" imgSrc="TreehouseBanner.png" imgAlt="Treehouse Logo"
+    <div class="main__ctas">
+      <CtaBanner id="treehouse-cta" class="main__ctas--treehouse" imgSrc="TreehouseBanner.png" imgAlt="Treehouse Logo"
         link="https://www.teamtreehouse.com/?via=julien" text="Learn with Treehouse" />
-      <CtaBanner id="github-cta" class="ctas__github" imgSrc="GitHubBanner.png" imgAlt="GitHub Logo" link="https://github.com/pdxchambers"
+      <CtaBanner id="github-cta" class="main__ctas--github" imgSrc="GitHubBanner.png" imgAlt="GitHub Logo" link="https://github.com/pdxchambers"
         text="View My GitHub" />
     </div>
 
-    <div class="widgets">
-      <div class="widgets__bluesky">
+    <div class="main__widgets">
+      <div class="main__widgets--bluesky">
         <Suspense>
           <BlueskyWidget />
         </Suspense>
       </div>
 
-      <div class="widgets__divider">
+      <div class="main__widgets--divider">
         <img :src="wowCamp" alt="World of Warcraft Campsite" class="wow-camp" />
       </div>
 
-      <div class="widgets__wowList">
-        <div class="widgets__wowList__header">
-          <h2 class="widgets__wowList__header--title">World of Warcraft</h2>
-          <div class="widgets__wowList__status">
+      <div class="main__widgets--wowList">
+        <div class="main__widgets--wowList__header">
+          <h2 class="main__widgets--wowList__header--title">World of Warcraft</h2>
+          <div class="main__widgets--wowList__status">
             <h3>{{ realmStatus.name }} realm status:</h3>
-            <div class="widgets__wowList__status-block">
-              <span class="widgets__wowList__status-text">{{ realmStatus.status }}</span>
-              <img v-if="realmStatus.status.toLowerCase() === 'up'" :src="realmUp" alt="Realm Down" class="widgets__wowList__status-icon" />
-              <img v-else :src="realmDown" alt="Realm Down" class="widgets__wowList__status-icon" />
+            <div class="main__widgets--wowList__status-block">
+              <span class="main__widgets--wowList__status-text">{{ realmStatus.status }}</span>
+              <img v-if="realmStatus.status.toLowerCase() === 'up'" :src="realmUp" alt="Realm Down" class="main__widgets--wowList__statusIcon" />
+              <img v-else :src="realmDown" alt="Realm Down" class="main__widgets--wowList__statusIcon" />
             </div>
           </div>
         </div>
         <h3>My top 6 played toons:</h3>
-        <div class="widgets__wowList__wowCharacters">
+        <div class="main__widgets--wowList__wowCharacters">
           <CharacterWidget v-for="(toon, id) in WowCharacter" v-bind:key="id" :character="toon" />
         </div>
       </div>
@@ -96,33 +96,39 @@ onMounted(async () => {
 </template>
 
 <style lang="less" scoped>
-#main {
-  .hero {
+.main {
+  &__hero {
     background-image: url('../assets/developer.jpg');
     background-size: cover;
     background-position: center;
     grid-area: home;
     margin: 0 auto;
     padding: var(--base-padding);
-    max-width: var(--content-max-width);
     h2 {
       color: var(--color-text);
       font-size: 2rem;
       font-weight: bold;
       text-align: center;
     }
+    @media (min-width: 992px) {
+      min-height: 300px;
+      width: var(--content-max-width);
+    }
   }
 
-  .introduction {
+  &__introduction {
     grid-area: introduction;
-
     p {
       line-height: var(--base-line-height);
       padding: var(--base-padding);
     }
+    @media (min-width: 992px) {
+      width: var(--content-max-width);
+      margin: 0 auto;
+    }
   }
 
-  .widgets {
+  &__widgets {
     display: grid;
     grid-area: widgets;
     grid-template-areas:
@@ -135,12 +141,12 @@ onMounted(async () => {
     max-width: var(--content-max-width);
     margin: 0 auto;
 
-    &__bluesky {
+    &--bluesky {
       grid-area: bluesky;
       max-width: 100%;
     }
 
-    &__divider {
+    &--divider {
       grid-area: divider;
       max-width: 300px;
       margin: 0 auto;
@@ -157,7 +163,7 @@ onMounted(async () => {
       }
     }
 
-    &__wowList {
+    &--wowList {
       background-color: var(--color-accent-bg);
       grid-area: wow;
       max-width: 300px;
@@ -181,7 +187,7 @@ onMounted(async () => {
         align-items: center;
         font-size: 24px;
       }
-      &__status-icon {
+      &__statusIcon {
         width: 24px;
         height: 24px;
       }
@@ -195,53 +201,58 @@ onMounted(async () => {
     }
 
   @media (min-width: 576px) {
+    background-color: var(--color-accent-bg);
+    border-top: thin solid var(--color-accent);
+    border-bottom: thin solid var(--color-accent);
     grid-template-areas:
       "wow bluesky";
-  }
-
-  @media (min-width: 768px) {
-    background-color: var(--color-accent-bg);
-    border-radius: var(--base-border-radius);
-    border: thin solid var(--color-accent);
     margin-bottom: 1rem;
   }
 
+  @media (min-width: 768px) {
+
+  }
+
   @media (min-width: 992px) {
-      grid-template-areas:
-      "wow divider bluesky";
-    }
+    grid-template-areas:
+    "wow divider bluesky";
+    border-radius: var(--base-border-radius);
+    border: thin solid var(--color-accent);
+  }
 }
 
-.ctas {
+&__ctas {
   display: flex;
   flex-wrap: wrap;
   grid-area: ctas;
   justify-content: space-evenly;
-  &__treehouse {
-    grid-area: treehouse;
-    max-width: 33.33%
-  }
-  &__github {
-    grid-area: github;
-    max-width: 33.33%
-  }
 
-  @media (min-width: 768px) {
-    &__treehouse,
-    &__github {
+  &--treehouse {
+    grid-area: treehouse;
+    max-width: 33.33%;
+    @media (min-width: 768px) {
       max-width: 200px;
     }
   }
 
-  @media (min-width: 992px) {
-      display: grid;
-      grid-template-areas:
-        "home home"
-        "ctas ctas"
-        "widgets widgets";
-      grid-template-columns: 1fr 1fr;
-      gap: var(--base-gap);
+  &--github {
+    grid-area: github;
+    max-width: 33.33%;
+    @media (min-width: 768px) {
+      max-width: 200px;
     }
+  }
+}
+
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-areas:
+      "home home"
+      "introduction introduction"
+      "ctas ctas"
+      "widgets widgets";
+    grid-template-columns: 1fr 1fr;
+    gap: var(--base-gap);
   }
 }
 </style>
