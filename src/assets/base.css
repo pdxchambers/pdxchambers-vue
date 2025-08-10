@@ -20,6 +20,7 @@
   --base-transition: 0.3s ease-in-out;
   --base-font-size: 16px;
   --base-line-height: 1.4;
+  --base-gap: 1rem;
 
   --content-max-width: 992px;
 }

@@ -18,8 +18,6 @@
 
 <style lang="less" scoped>
   .ctaBanner {
-    border-radius: var(--base-border-radius);
-    border: thin solid var(--color-accent);
     display: grid;
     grid-template-areas:
       "image"
@@ -30,7 +28,8 @@
     &__image {
       grid-area: image;
       width: 100%;
-      border-radius: 0.25rem;
+      border-radius: var(--base-border-radius);
+      border: thin solid var(--color-accent);
     }
   }
 </style>

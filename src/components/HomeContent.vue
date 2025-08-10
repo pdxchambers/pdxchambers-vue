@@ -35,10 +35,7 @@ onMounted(async () => {
     realmStatus.value = data;
   }).catch((error) => {
     console.error('Error fetching realm status:', error);
-  }
-  );
-
-
+  });
 });
 
 </script>
@@ -53,7 +50,8 @@ onMounted(async () => {
     </div>
 
     <div class="main__introduction">
-      <p>
+      <div class="main__introduction--image"></div>
+      <p class="main__introduction--copy">
         {{data.copy}}
       </p>
     </div>
@@ -100,8 +98,6 @@ onMounted(async () => {
 
 <style lang="less" scoped>
 .main {
-  background-color: #fff;
-  color: var(--color-accent-bg);
   max-width: var(--base-max-width);
   &__hero {
     background-image: url('../assets/developer.jpg');
@@ -140,14 +136,47 @@ onMounted(async () => {
   }
 
   &__introduction {
+    display: grid;
+    grid-template-areas:
+      "introImage"
+      "introCopy";
+    grid-column-gap: var(--base-gap);
+    align-items: stretch;
+    background-color: #fff;
+    color: var(--color-accent-bg);
     grid-area: introduction;
-    p {
+    padding: var(--base-padding);
+    &--image {
+      grid-area: introImage;
+      width: 100%;
+      height: 200px;
+      background-image: url('../assets/me2.jpg');
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto;
+      border-radius: var(--base-border-radius);
+      margin-bottom: var(--base-margin);
+    }
+    &--copy {
+      grid-area: introCopy;
       line-height: var(--base-line-height);
-      padding: var(--base-padding);
+    }
+    @media(min-width: 768px) {
+      grid-template-areas:
+        "introImage introCopy";
+      grid-template-columns: 1fr 2fr;
+      &--image {
+        width: 100%;
+        height: auto;
+        margin: 0;
+      }
     }
   }
 
   &__widgets {
+    background-color: var(--color-accent-bg);
+    border-top: thin solid var(--color-accent);
+    border-bottom: thin solid var(--color-accent);
     display: grid;
     grid-area: widgets;
     grid-template-areas:
@@ -219,9 +248,6 @@ onMounted(async () => {
     }
 
   @media (min-width: 576px) {
-    background-color: var(--color-accent-bg);
-    border-top: thin solid var(--color-accent);
-    border-bottom: thin solid var(--color-accent);
     grid-template-areas:
       "wow bluesky";
     margin-bottom: 1rem;
@@ -234,41 +260,28 @@ onMounted(async () => {
 }
 
 &__ctas {
+  background-color: var(--color-accent);
   display: grid;
+  justify-content: center;
   grid-area: ctas;
   grid-template-areas:
-    "treehouse"
-    "github";
-  justify-content: center;
-
+    "treehouse github";
+  grid-template-columns: 1fr 1fr;
+  gap: var(--base-gap);
+  padding: var(--base-padding);
   &--treehouse {
     grid-area: treehouse;
-    max-width: 33.33%;
-    @media (min-width: 576px) {
-      max-width: 75%;
-    }
-    @media (min-width: 768px) {
-      max-width: 65%;
-    }
   }
 
   &--github {
     grid-area: github;
-    max-width: 33.33%;
-    @media (min-width: 576px) {
-      max-width: 75%;
-    }
-    @media (min-width: 768px) {
-      max-width: 65%;
-    }
   }
-  @media (max-width: 575px) {
+  @media (min-width: 575px) {
     display: grid;
     grid-template-areas:
       "treehouse"
       "github";
     grid-template-columns: 1fr;
-    gap: var(--base-gap);
   }
 }
   @media (min-width: 576px) {
@@ -278,7 +291,6 @@ onMounted(async () => {
       "introduction ctas"
       "widgets widgets";
     grid-template-columns: 2fr 1fr;
-    gap: var(--base-gap);
   }
 
   @media (min-width: 992px) {
