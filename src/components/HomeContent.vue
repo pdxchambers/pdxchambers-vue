@@ -118,7 +118,7 @@ onMounted(async () => {
     }
     &--description {
       border-top: thin solid var(--color-accent);
-      font-size: 1.25rem;
+      font-size: 1.75rem;
       text-align: center;
       margin-top: 1rem;
       @media(min-width: 768px) {
@@ -158,8 +158,10 @@ onMounted(async () => {
       margin-bottom: var(--base-margin);
     }
     &--copy {
+      font-size: 24px;
       grid-area: introCopy;
       line-height: var(--base-line-height);
+      text-align: justify;
     }
     @media(min-width: 768px) {
       grid-template-areas:
@@ -250,7 +252,6 @@ onMounted(async () => {
   @media (min-width: 576px) {
     grid-template-areas:
       "wow bluesky";
-    margin-bottom: 1rem;
   }
 
   @media (min-width: 992px) {
