@@ -35,16 +35,14 @@
     </section>
     <section class="resume__skills">
       <h2>Skills</h2>
-      <table>
-        <tr v-for="(skill, index) in data.skills" :key="index">
-          <th>{{skill.sectionTitle}}</th>
-          <td>
+        <div class="resume__skills--container" v-for="(skill, index) in data.skills" :key="index">
+          <div class="resume__skills--skillCat">{{skill.sectionTitle}}</div>
+          <div class="resume__skills--skillList">
             <ul>
               <li v-for="(item, itemIndex) in skill.skillList" :key="itemIndex">{{ item }}</li>
             </ul>
-          </td>
-        </tr>
-      </table>
+          </div>
+        </div>
     </section>
     <section class="resume__history">
       <h2>Work History</h2>
@@ -73,6 +71,37 @@
   .resume {
     margin: 0 auto;
     max-width: var(--content-max-width);
+    &__skills {
+      &--container {
+        display: grid;
+        grid-template-areas:
+          "skillCat"
+          "skillList";
+        margin-bottom: 32px;
+      }
+      &--skillCat {
+        grid-area: skillCat;
+        font-weight: bold;
+        color: var(--color-accent-text);
+      }
+      &--skillList {
+        grid-area: skillList;
+        ul {
+          list-style-type: none;
+          padding-left: 0;
+          text-align: center;
+          li {
+            display: inline-block;
+            font-size: 75%;
+            border-right: thin solid var(--color-accent);
+            padding: 0 var(--base-padding);
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+      }
+    }
 
     section {
       padding: var(--base-padding);
@@ -91,11 +120,6 @@
       }
       span{
         font-style: italic;
-      }
-      th, td {
-        border-bottom: thin solid var(--color-accent);
-        border-collapse: collapse;
-        padding: var(--base-padding) 0;
       }
       ul {
         list-style-type: none;
