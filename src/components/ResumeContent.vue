@@ -78,6 +78,11 @@
           "skillCat"
           "skillList";
         margin-bottom: 32px;
+        @media (min-width: 576px) {
+          grid-template-areas:
+            "skillCat skillList";
+          grid-template-columns: 1fr 2fr;
+        }
       }
       &--skillCat {
         grid-area: skillCat;
