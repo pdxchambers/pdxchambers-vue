@@ -26,42 +26,32 @@ const props = defineProps<{
     </nav>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
   ul {
     background-color: var(--color-accent-bg);
     list-style-type: none;
     padding: 0;
     width: 100%;
-  }
-
-  li {
-    background-color: var(--color-accent-bg);
-    border-bottom: thin solid var(--color-accent);
-    padding: 0.5rem;
-    margin-top: 0.1rem;
-    width: 100%;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--color-text);
-  }
-
-  @media (min-width: 768px) {
-    ul {
+    @media (min-width: 768px) {
       width: 100%;
     }
-  }
-
-  @media (min-width: 992px) {
-    ul {
+    @media (min-width: 992px) {
       display: flex;
-      justify-content: center;
-      width: 100%;
+      justify-content: space-evenly;
     }
-
     li {
-      text-align: center;
+      background-color: var(--color-accent-bg);
+      border-bottom: thin solid var(--color-accent);
+      padding: 0.5rem;
+      margin-top: 0.1rem;
+      width: 100%;
+      @media (min-width: 992px) {
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+        color: var(--color-text);
+      }
     }
   }
 </style>

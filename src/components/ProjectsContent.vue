@@ -4,10 +4,10 @@
 </script>
 
 <template>
-  <section class="projects-content">
-    <h2 class="section-title">Sample Projects</h2>
-    <div class="projects">
-      <div v-for="project in ProjectData.projectList" :key="project.projectName" class="project-section">
+  <section class="projects">
+    <h2 class="projects__title">Sample Projects</h2>
+    <div class="projects__list">
+      <div v-for="project in ProjectData.projectList" :key="project.projectName" class="projects__list--section">
         <ProjectCard
           :name="project.projectName"
           :description="project.projectDescription"
@@ -20,26 +20,27 @@
   </section>
 </template>
 
-<style scoped>
-  .projects-content {
-    padding: var(--base-padding);
-    margin: 0 auto;
-    max-width: var(--content-max-width);
-  }
-
-  .section-title {
-    text-align: center;
-  }
-  @media (min-width: 768px) {
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+<style lang="less" scoped>
+  .projects {
+    &__list{
+      padding: var(--base-padding);
+      margin: 0 auto;
+      max-width: var(--content-max-width);
+      @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      &--section{
+        @media (min-width: 768px) {
+          flex: 1 1 calc(50% - 2rem);
+          max-height: 100%;
+          margin: .5rem;
+        }
+      }
     }
-    .project-section {
-      flex: 1 1 calc(50% - 2rem);
-      max-height: 100%;
-      margin: .5rem;
+    &__title {
+      text-align: center;
     }
   }
 

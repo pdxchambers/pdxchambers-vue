@@ -18,13 +18,26 @@
   --base-margin: .5rem;
   --base-border-radius: 8px;
   --base-transition: 0.3s ease-in-out;
-  --base-font-size: 16px;
+  --base-font-size: 18px;
   --base-line-height: 1.4;
+  --base-gap: 1rem;
 
   --content-max-width: 992px;
 }
 
 /* Global styles */
+@font-face {
+  font-family: 'CaviarDreams';
+  src: url('./fonts/Caviar_Dreams/caviardreams_regular_macroman/CaviarDreams-webfont.woff');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./fonts/Inter/Inter-Regular.woff') format('woff'),
+
+}
+
+
 *,
 *::before,
 *::after {
@@ -42,6 +55,7 @@ body {
     background-color 0.5s;
   line-height: var(--base-line-height);
   font-family:
+    Quicksand,
     Inter,
     -apple-system,
     BlinkMacSystemFont,
@@ -58,6 +72,14 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'CaviarDreams', sans-serif;
+  font-weight: normal;
+  margin: var(--base-margin) 0;
 }
 
 h1,

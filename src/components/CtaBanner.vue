@@ -11,15 +11,13 @@
 </script>
 
 <template>
-  <div class="cta-banner" :id>
-    <a :href="link"><img :src="computedLink" :alt="props.imgAlt" class="cta-image" /></a>
+  <div class="ctaBanner" :id>
+    <a :href="link"><img :src="computedLink" :alt="props.imgAlt" class="ctaBanner__image" /></a>
   </div>
 </template>
 
-<style scoped>
-  .cta-banner {
-    border-radius: var(--base-border-radius);
-    border: thin solid var(--color-accent);
+<style lang="less" scoped>
+  .ctaBanner {
     display: grid;
     grid-template-areas:
       "image"
@@ -27,21 +25,11 @@
     place-items: center;
     width: 100%;
     margin: var(--base-margin) 0;
-  }
-
-  .cta-image {
-    grid-area: image;
-    width: 100%;
-    border-radius: 0.25rem;
-  }
-  .cta-text {
-    grid-area: text;
-    text-align: center;
-    font-size: 1.25rem;
-  }
-  .cta-text a {
-    color: var(--color-accent-text);
-    text-decoration: none;
-    font-weight: bold;
+    &__image {
+      grid-area: image;
+      width: 100%;
+      border-radius: var(--base-border-radius);
+      border: thin solid var(--color-accent);
+    }
   }
 </style>
