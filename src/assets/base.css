@@ -32,9 +32,8 @@
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  src: url('./fonts/Inter/Inter-Regular.woff') format('woff'),
-
+  font-family: 'Open Sans';
+  src: url('./fonts/Open-Sans/opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff'),
 }
 
 
@@ -55,7 +54,7 @@ body {
     background-color 0.5s;
   line-height: var(--base-line-height);
   font-family:
-    Quicksand,
+    'Open Sans',
     Inter,
     -apple-system,
     BlinkMacSystemFont,
