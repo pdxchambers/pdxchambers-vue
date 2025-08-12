@@ -119,6 +119,7 @@ onMounted(async () => {
     &--description {
       border-top: thin solid var(--color-accent);
       font-size: 1.75rem;
+      font-weight: bold;
       text-align: center;
       margin-top: 1rem;
       @media(min-width: 768px) {
