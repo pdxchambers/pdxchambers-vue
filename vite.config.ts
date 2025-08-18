@@ -19,11 +19,6 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 1600,
-    outDir: "build",
-    minify: "esbuild",
-    manifest: true,
-    sourcemap: false,
-    reportCompressedSize: true,
     rollupOptions: {
       output: {
        manualChunks(id) {
