@@ -6,7 +6,7 @@
     link: string
     githubUrl: string
   }>()
-  const computedLink = "src/assets/projectImages/" + props.imageUrl
+  const computedLink = "src/assets/" + props.imageUrl
 </script>
 
 <template>
